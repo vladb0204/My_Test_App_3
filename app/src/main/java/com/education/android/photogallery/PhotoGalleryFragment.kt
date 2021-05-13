@@ -37,7 +37,7 @@ class PhotoGalleryFragment : Fragment() {
 
         retainInstance = true
         photoGalleryViewModel = ViewModelProviders.of(this)
-            .get(PhotoGalleryViewModel::class.java)
+            .get(PhotoGalleryViewModel::class.java) // deprecated
 
         setHasOptionsMenu(true)
 
