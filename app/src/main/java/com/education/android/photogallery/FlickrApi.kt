@@ -6,15 +6,17 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 import retrofit2.http.Url
 
 interface FlickrApi {
 
-    @GET("services/rest/?method=flickr.interestigness.getList" +
-            "&apikey=" + /* I need to create it, haven't done that yet */
-            "&format=json&nojsoncallback=1&extras=url_s")
-    fun fetchPhotos(): Call<FlickrResponse>
+    @GET("services/rest?method=flickr.interestingness.getList")
+    public fun fetchPhotos(): Call<FlickrResponse>
+
+    @GET("services/rest?method=flickr.photos.search")
+    public fun searchPhotos(@Query("text") query: String): Call<FlickrResponse>
 
     @GET
-    fun fletchUrlBytes(@Url url: String): Call<ResponseBody>
+    public fun fletchUrlBytes(@Url url: String): Call<ResponseBody>
 }
